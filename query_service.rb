@@ -1,6 +1,6 @@
 require 'csv'
 
-class Tests
+class QueryService
   def initialize
     @conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
   end
@@ -19,5 +19,9 @@ class Tests
                           '#{row[10]}', '#{row[11]}', '#{row[12]}', '#{row[13]}',
                           '#{row[14]}', '#{row[15]}')")
     end
+  end
+
+  def all
+    @conn.exec('SELECT * FROM TESTS').to_a
   end
 end

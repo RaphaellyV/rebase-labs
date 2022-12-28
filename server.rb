@@ -1,6 +1,5 @@
-require 'sinatra'
 require 'rack/handler/puma'
-require './rebase_labs.rb'
+require './app.rb'
 
 Rack::Handler::Puma.run(
   Sinatra::Application,

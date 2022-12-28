@@ -17,6 +17,7 @@ require "./environment.rb"
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Rack::Test::Methods
+  
   config.after(:example) do
     conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
     conn.exec("DELETE FROM TESTS")

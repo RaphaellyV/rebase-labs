@@ -1,13 +1,11 @@
 require 'spec_helper'
-require './tests.rb'
-require 'sinatra'
-require './rebase_labs.rb'
+require './query_service.rb'
 
 describe 'Tests list API' do
   context '.import_csv' do
     it 'guarda os dados de 4 testes no banco de dados existente' do
       conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
-      Tests.new.import_csv('./spec/support/tests.csv')
+      QueryService.new.import_csv('./spec/support/tests.csv')
   
       result_array = conn.exec('SELECT * FROM TESTS').to_a
   
@@ -38,7 +36,7 @@ describe 'Tests list API' do
     
     it 'guarda os dados de todos os testes do arquivo data.csv no banco de dados existente' do
       conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
-      Tests.new.import_csv('./data.csv')
+      QueryService.new.import_csv('./data.csv')
   
       list_length = conn.exec('SELECT * FROM TESTS').to_a.length
   
@@ -51,12 +49,18 @@ describe 'Tests list API' do
       Sinatra::Application
     end
     conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
-    Tests.new.import_csv('./spec/support/tests.csv')
+    QueryService.new.import_csv('./spec/support/tests.csv')
     result_json = conn.exec('SELECT * FROM TESTS').to_a.to_json
 
     get('/tests')
 
     expect(last_response.status).to eq 200
     expect(last_response.body).to eq result_json
+  end
+
+  it '.all' do
+    conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')  
+    result_array = conn.exec('SELECT * FROM TESTS').to_a
+    expect(QueryService.new.all).to eq result_array
   end
 end
