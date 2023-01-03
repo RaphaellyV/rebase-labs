@@ -1,5 +1,5 @@
 require 'rack/handler/puma'
-require './app.rb'
+require './tests_api.rb'
 
 Rack::Handler::Puma.run(
   Sinatra::Application,

@@ -15,8 +15,16 @@ require "./environment.rb"
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+
 RSpec.configure do |config|
-  config.include Rack::Test::Methods
+  include Rack::Test::Methods
+  def app
+    Sinatra::Application
+  end
+  Capybara.app = Sinatra::Application.new
+
+  config.include Capybara::DSL
   
   config.after(:example) do
     conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
@@ -104,4 +112,11 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+end
+Capybara.configure do |config|
+  include Rack::Test::Methods
+  def app
+    Sinatra::Application
+  end
+  Capybara.app = Sinatra::Application.new
 end

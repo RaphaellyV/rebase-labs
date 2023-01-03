@@ -1,7 +1,7 @@
 require 'spec_helper'
 require './query_service.rb'
 
-describe 'Tests list API' do
+describe 'Query Service' do
   context '.import_csv' do
     it 'guarda os dados de 4 testes no banco de dados existente' do
       conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
@@ -42,20 +42,6 @@ describe 'Tests list API' do
   
       expect(list_length).to eq 3900
     end
-  end
-
-  it 'GET /tests' do
-    def app
-      Sinatra::Application
-    end
-    conn = PG.connect(host: 'postgres', dbname: 'postgres', user: 'postgres')
-    QueryService.new.import_csv('./spec/support/tests.csv')
-    result_json = conn.exec('SELECT * FROM TESTS').to_a.to_json
-
-    get('/tests')
-
-    expect(last_response.status).to eq 200
-    expect(last_response.body).to eq result_json
   end
 
   it '.all' do
