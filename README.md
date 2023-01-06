@@ -15,31 +15,31 @@ Uma app web para listagem de exames médicos desenvolvida como parte de um labor
 No terminal, clone o projeto:
 
 ```
-$ git clone git@github.com:RaphaellyV/rebase-labs.git
+git clone git@github.com:RaphaellyV/rebase-labs.git
 ```
 
 Entre na pasta do projeto:
 
 ```
-$ cd rebase-labs
+cd rebase-labs
 ```
 
 Inicie a app:
 
 ```
-$ docker compose up -d
+docker compose up -d
 ```
 
 Para derrubar a app:
 
 ```
-$ docker compose down
+docker compose down
 ```
 
 ## Como rodar os testes
 
 ```
-$ docker compose exec app rspec
+docker compose exec app rspec
 ```
 
 Atualmente a app possui somente um banco de dados, então a execução dos testes irá deletar o conteúdo da tabela de exames realizados, sendo necessário repopulá-la.
@@ -49,7 +49,7 @@ Atualmente a app possui somente um banco de dados, então a execução dos teste
 Os dados dos exames realizados estão contidos em um arquivo CSV, que deve ser importado para o banco de dados da app com o seguinte comando:
 
 ```
-$ docker compose exec app ruby import_csv.rb
+docker compose exec app ruby import_csv.rb
 ```
 
 ## Endpoint para obter lista de exames realizados
