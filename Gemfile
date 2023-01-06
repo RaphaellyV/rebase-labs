@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'rack'
+gem 'rack' , "~> 2.2.5"
 gem 'puma'
 gem 'pg'
 group :test do
