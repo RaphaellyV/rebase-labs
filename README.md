@@ -54,11 +54,25 @@ Os dados dos exames realizados estão contidos em um arquivo CSV, que pode ser i
 docker compose exec app ruby import_csv.rb
 ```
 
-- Endpoint:
+- Endpoint utilizando o caminho até o arquivo csv:
 
 Request:
 ```
 POST /import?file=./data.csv
+```
+
+## Como importar os dados dos exames realizados de forma assíncrona
+
+- Com a app rodando, execute o Sidekiq:
+
+```
+docker compose exec app sidekiq -r ./my_job.rb 
+```
+
+- Importe os dados utilizando o caminho até o arquivo csv no endpoint:
+
+```
+POST /import-queue?file=./data.csv
 ```
 
 ## Endpoint para obter lista de exames realizados

@@ -39,6 +39,7 @@ describe 'Tests API' do
     expect(last_response.body).to include 'test_result'
     expect(last_response.body).to include '048.973.170-88'
     expect(last_response.body).to include 'Emilly Batista Neto'
+    expect(last_response.body).to include 'Juliana dos Reis Filho'
     expect(last_response.body).to include 'gerald.crona@ebert-quigley.com'
     expect(last_response.body).to include '2001-03-11'
     expect(last_response.body).to include '165 Rua Rafaela'
@@ -53,11 +54,8 @@ describe 'Tests API' do
     expect(last_response.body).to include 'hemácias'
     expect(last_response.body).to include '45-52'
     expect(last_response.body).to include '97'
-    expect(last_response.body).to include '048.973.170-88'
     expect(last_response.body).to include 'leucócitos'
-    expect(last_response.body).to include '048.108.026-04'
-    expect(last_response.body).to include 'hemácias'
-    expect(last_response.body).to include '048.108.026-04'
-    expect(last_response.body).to include 'leucócitos'
+    expect(last_response.body).to include '9-61'
+    expect(last_response.body).to include '89'
   end
 end

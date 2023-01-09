@@ -6,6 +6,8 @@ services:
     volumes:
       - .:/app
       - rubygems:/usr/local/bundle
+    environment:
+      - REDIS_URL=redis://redis:6379/0
     ports:
       - 3000:3000
   postgres:
@@ -15,6 +17,8 @@ services:
       - pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
+  redis:
+    image: redis
 volumes:
   rubygems:
   pgdata:
