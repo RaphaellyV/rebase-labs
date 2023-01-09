@@ -46,10 +46,19 @@ Atualmente a app possui somente um banco de dados, então a execução dos teste
 
 ## Como importar os dados dos exames realizados
 
-Os dados dos exames realizados estão contidos em um arquivo CSV, que deve ser importado para o banco de dados da app com o seguinte comando:
+Os dados dos exames realizados estão contidos em um arquivo CSV, que pode ser importado para o banco de dados da app de duas maneiras:
+
+- Comando:
 
 ```
 docker compose exec app ruby import_csv.rb
+```
+
+- Endpoint:
+
+Request:
+```
+POST /import?file=CAMINHO_PARA_O_CSV_NO_SERVIDOR
 ```
 
 ## Endpoint para obter lista de exames realizados
