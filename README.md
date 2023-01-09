@@ -58,7 +58,7 @@ docker compose exec app ruby import_csv.rb
 
 Request:
 ```
-POST /import?file=CAMINHO_PARA_O_CSV_NO_SERVIDOR
+POST /import?file=./spec/support/tests.csv
 ```
 
 ## Endpoint para obter lista de exames realizados
