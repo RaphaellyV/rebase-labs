@@ -170,3 +170,7 @@ Response:
 ## Como acessar o front-end HTML da tabela de exames 
 
 Os dados estarão disponíveis após sua importação inicial em http://localhost:3000/tests-table.
+
+## Como buscar por exames a partir de um token 
+
+- Após a importação inicial dos dados do arquivo csv, acesse http://localhost:3000/ e busque pelo token desejado.
