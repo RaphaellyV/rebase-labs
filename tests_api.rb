@@ -12,6 +12,16 @@ get '/tests-table' do
   send_file './views/tests_table.html'
 end
 
+get '/' do
+  erb :home
+end
+
+get '/search' do
+  @token = params[:query]
+  @tests = QueryService.new.find(@token)
+  erb :search
+end
+
 post '/import' do
   QueryService.new.import_csv(params[:file])
   'Exames importados com sucesso'

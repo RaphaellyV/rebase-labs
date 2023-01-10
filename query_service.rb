@@ -24,4 +24,8 @@ class QueryService
   def all
     @conn.exec('SELECT * FROM TESTS').to_a
   end
+
+  def find(token)
+    @conn.exec("SELECT * FROM TESTS WHERE TEST_TOKEN='#{token}'").to_a
+  end
 end
