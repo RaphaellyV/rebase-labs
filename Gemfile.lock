@@ -70,7 +70,7 @@ DEPENDENCIES
   capybara
   pg
   puma
-  rack (~> 2.2.5)
+  rack
   rack-test
   rspec
   sidekiq

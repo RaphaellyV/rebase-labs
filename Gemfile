@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'rack' , "~> 2.2.5"
+gem 'rack'
 gem 'puma'
 gem 'pg'
 gem 'sidekiq'
