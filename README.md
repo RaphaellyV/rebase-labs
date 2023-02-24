@@ -15,7 +15,7 @@ Uma app web para listagem de exames médicos desenvolvida como parte de um labor
 No terminal, clone o projeto:
 
 ```
-git clone git@github.com:RaphaellyV/rebase-labs.git
+git clone https://github.com/RaphaellyV/rebase-labs.git
 ```
 
 Entre na pasta do projeto:
@@ -28,6 +28,12 @@ Inicie a app:
 
 ```
 docker compose up -d
+```
+
+Crie a tabela de exames inserindo o conteúdo do arquivo postgres.sql no banco de dados (use "exit" para sair):
+
+```
+docker compose exec -it postgres psql -U postgres
 ```
 
 Para derrubar a app:
